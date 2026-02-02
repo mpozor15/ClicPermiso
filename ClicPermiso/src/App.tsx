@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Sidebar } from './components/Sidebar';
+import { Header } from './components/Header';
+import { SolicitudDiurno } from './pages/SolicitudDiurno';
+import { SolicitudVespertino } from './pages/SolicitudVespertino';
+import { Perfil } from './pages/Perfil';
+import { MisDias } from './pages/MisDias';
+import { Ausencias } from './pages/Ausencias';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      {/* Sidebar fijo a la izquierda */}
+      <Sidebar />
+      
+      {/* Contenedor principal a la derecha */}
+      <div className="main-content">
+        <Header />
+        
+        {/* Aquí se carga la página correspondiente */}
+        <main className="page-content">
+          <Routes>
+            {/* Redirigir la raíz "/" a "/diurno" por defecto */}
+            <Route path="/" element={<Navigate to="/diurno" replace />} />
+            
+            <Route path="/diurno" element={<SolicitudDiurno />} />
+            <Route path="/vespertino" element={<SolicitudVespertino />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/mis-dias" element={<MisDias />} />
+            <Route path="/ausencias" element={<Ausencias />} />
+            
+            {/* Ruta 404 */}
+            <Route path="*" element={<h2>Página no encontrada</h2>} />
+          </Routes>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

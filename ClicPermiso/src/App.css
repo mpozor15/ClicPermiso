@@ -1,42 +1,95 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container {
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  font-family: Arial, sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.logo-text {
+  color: #000080; /* Azul oscuro tipo el logo */
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  font-weight: bold;
 }
 
-.card {
-  padding: 2em;
+.nav-list {
+  list-style: none;
 }
 
-.read-the-docs {
-  color: #888;
+.nav-link {
+  display: block;
+  padding: 15px 10px;
+  text-decoration: none;
+  color: #666;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  transition: background 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #f5f5f5;
+}
+
+.nav-link.active {
+  background-color: #e6e6fa; /* Un lila suave parecido a la foto */
+  color: #000080;
+  font-weight: bold;
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+/* --- HEADER --- */
+.header {
+  height: 70px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea contenido a la derecha */
+  padding: 0 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* --- PAGE CONTENT --- */
+.page-content {
+  padding: 30px;
+  flex: 1;
+  overflow-y: auto; /* Permite scroll si el contenido es muy largo */
 }
