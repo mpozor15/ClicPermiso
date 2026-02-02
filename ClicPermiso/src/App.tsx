@@ -2,10 +2,10 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { SolicitudDiurno } from './pages/SolicitudDiurno';
-import { SolicitudVespertino } from './pages/SolicitudVespertino';
-import { Perfil } from './pages/Perfil';
-import { MisDias } from './pages/MisDias';
-import { Ausencias } from './pages/Ausencias';
+import { SolicitudVespertino } from './pages/SolicitudVespertino.tsx';
+import { Perfil } from './pages/Perfil.tsx';
+import { MisDias } from './pages/MisDias.tsx';
+import { Ausencias } from './pages/Ausencias.tsx';
 import './App.css';
 
 function App() {
